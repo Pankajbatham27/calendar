@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Calendar from './components/Calendar/Calendar';
+import { useState } from 'react';
 
 function App() {
+
+  const [date, setDate] = useState(new Date('2020-03-23'));
+  const [firstInputDateRemember, setFirstInputDateRemember] = useState(date);
+
+  const preNextHandler = (event) => {
+    if (event === 'pre') {
+      setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+    } else {
+      setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-header">
+        <Calendar date={date} firstInputDateRemember={firstInputDateRemember} preNextHandler={preNextHandler} />
+      </div>
     </div>
   );
 }

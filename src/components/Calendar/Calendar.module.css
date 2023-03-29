@@ -1,0 +1,62 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+    font-family: sans-serif;
+  }
+  
+  .calendarHeader {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5em;
+  }
+  
+  .calendarDays > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  .calendarDays > div:hover {
+    background-color: #ddd;
+  }
+  
+  .calendarDays > div:empty {
+    visibility: hidden;
+  }
+
+  .calendarDays > .active {
+    background: lime;
+    color: #fff;
+}
+
+.calendarWeekNames {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1em;
+    margin-bottom: 11px;
+    font-size: 13px;
+}
+.forButtonFlex button:first-child {
+    margin-right: 70px;
+}
+
+.forButtonFlex button {
+    background: #000;
+    color: #fff;
+    margin-top: 31px;
+    padding: 4px 27px;
+    border-radius: 8px;
+}
